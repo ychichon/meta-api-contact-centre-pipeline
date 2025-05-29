@@ -51,5 +51,5 @@ Data & BI Developer
 
 ##  Want to Know More?
 
-This is a private, internal project. If you'd like to learn more about my work with API integration, automation, or Power BI storytelling, feel free to contact me. I’m open to freelance, contract, or remote data roles across the UK and Europe.
+I am always open to connecting with organisations and individuals who value thoughtful data storytelling and impactful Power BI reporting. If you are looking for someone who can turn data into actionable insights and support stakeholder decision-making, feel free to contact me. I'm currently available for roles in the UK and across Europe.
 
