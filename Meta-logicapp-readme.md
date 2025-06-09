@@ -34,8 +34,8 @@ This Logic App replaced a manual process of retrieving, transforming, and distri
 - **Monitoring**: Control files and counters stored in Blob Storage enabled auditability and retries.
 - **SQL integration**: Data was mapped to an external SQL table using Azure API connections.
 
-##  File: `meta-logicapp-definition.json`
-This is the actual workflow definition exported from Azure. It can be imported into a new Logic App (Standard or Consumption) to study or reuse logic patterns.
+##  File: `meta-logicapp-snippet.json`
+This is a simplified excerpt of the Logic App workflow definition, highlighting dynamic JSON parsing, conditional control checks, and Azure Blob Storage logic.
 
 ##  Credentials
 All API keys, tokens, and resource identifiers have been **redacted** or replaced with placeholders.
