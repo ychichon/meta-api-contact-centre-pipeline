@@ -42,7 +42,7 @@ This pipeline ingests campaign data from Meta via the Graph API, parses and tran
 | SQL Server               | Internal data storage and reporting                                  |
 | Excel                    | Validation and QA during development                                 |
 | Azure Monitor & Alerts   | Workflow monitoring and issue detection                              |
-| Power BI                 | Internal dashboard for fundrasing team to monitor campaign engagement and reach                |
+| Power BI                 | Internal dashboard for fundraising team to monitor campaign engagement and reach                |
 
 ---
 
@@ -51,7 +51,7 @@ This pipeline ingests campaign data from Meta via the Graph API, parses and tran
 Created an internal dashboard for the fundraising team to monitor:
 - Daily engagement and reach by source (paid vs organic)
 - Performance trends across the campaign lifecycle
-- New vs returning contacs
+- New vs returning contacts
 - Real-time campaign tracking for support decisions
 
 *(Visual previews and logic diagrams available upon request.)*
