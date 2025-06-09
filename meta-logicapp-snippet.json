@@ -1,0 +1,65 @@
+{
+  "For_each": {
+    "foreach": "@body('Parse_JSON')?['leads']?['data']",
+    "actions": {
+      "Parse_JSON_2": {
+        "inputs": {
+          "content": {
+            "firstname": "@{if(equals(items('For_each')['field_data'][0]['name'],'first_name'),items('For_each')['field_data'][0]['values'][0], ...)}",
+            "surname": "@{if(equals(items('For_each')['field_data'][0]['name'],'last_name'),items('For_each')['field_data'][0]['values'][0], ...)}",
+            "telephone": "@{if(equals(items('For_each')['field_data'][0]['name'],'phone_number'),items('For_each')['field_data'][0]['values'][0], ...)}",
+            "created_time": "@formatDateTime(items('For_each')['created_time'],'yyyy-MM-dd HH:mm:ss')",
+            "company_id": "@items('For_each')['id']"
+          }
+        },
+        "type": "ParseJson"
+      },
+      "Condition": {
+        "expression": {
+          "greater": [
+            "@outputs('Current_item_date_time_stamp')",
+            "@outputs('Latest_datetime')"
+          ]
+        },
+        "actions": {
+          "Append_to_array_variable": {
+            "name": "leads_container",
+            "value": "@body('Parse_JSON_2')"
+          },
+          "Update_sql": {
+            "body": {
+              "firstname": "...",
+              "surname": "...",
+              "telephone": "...",
+              "created_time": "...",
+              "company_id": "..."
+            },
+            "type": "ApiConnection"
+          }
+        }
+      }
+    }
+  },
+  "Check_if_there_is_data_to_be_send": {
+    "expression": {
+      "greater": [
+        "@variables('total_leads_send')",
+        0
+      ]
+    },
+    "actions": {
+      "Send_data_to_Angel": {
+        "method": "POST",
+        "uri": "https://some.uri/endpoint",
+        "body": "@variables('leads_container')"
+      }
+    }
+  },
+  "Update_blob_last_pull_id": {
+    "inputs": {
+      "body": "@variables('last_pull_id')",
+      "path": "/logicblob/valex_last_id.txt"
+    }
+  }
+}
+
